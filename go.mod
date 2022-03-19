@@ -1,3 +1,3 @@
-module gitee.com/dtapps/go-time
+module gitee.com/dtapps/gotime
 
 go 1.17
