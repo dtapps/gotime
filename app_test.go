@@ -46,34 +46,37 @@ func TestTime(t *testing.T) {
 	t.Log("本月开始时间：", Current().StartOfMonth().Format())
 	t.Log("本月结束时间：", Current().EndOfMonth().Format())
 
-	//t.Log("7100秒前的时间：", Current().BeforeSeconds(7100).Format())
-	//t.Log("2小时前的时间：", Current().BeforeHour(2).Format())
-	//t.Log("7100秒后的时间：", Current().AfterSeconds(7100).Format())
-	//t.Log("2小时后的时间：", Current().AfterHour(2).Format())
+	t.Log("7100秒前的时间：", Current().BeforeSeconds(7100).Format())
+	t.Log("2小时前的时间：", Current().BeforeHour(2).Format())
+	t.Log("7100秒后的时间：", Current().AfterSeconds(7100).Format())
+	t.Log("2小时后的时间：", Current().AfterHour(2).Format())
+
+	t.Log("相差多少小时(绝对值)：", SetCurrentParse("2022-03-01T10:03:39+08:00").Format())
+	t.Log("相差多少小时(绝对值)：", SetCurrentParse("2022-03-04T11:12:47+08:00").Format())
 }
 
-func TestStartOfDay(t *testing.T) {
-	t.Log(Current().Format())
-	t.Log(Current().StartOfDay().Format())
-	t.Log(Current().EndOfDay().Format())
-	t.Log(Current().Timestamp())
-	t.Log(Current().StartOfDay().Timestamp())
-	t.Log(Current().EndOfDay().Timestamp())
-	t.Log(Current().BeforeDay(1).Format())
-	t.Log(Current().BeforeDay(1).StartOfDay().Format())
-	t.Log(Current().BeforeDay(1).EndOfDay().Format())
-	t.Log(Current().AfterDay(1).Format())
-	t.Log(Current().AfterDay(1).StartOfDay().Format())
-	t.Log(Current().AfterDay(1).EndOfDay().Format())
+func TestDayStartOfEnd(t *testing.T) {
+	t.Log("当前时间：", Current().Format())
+	t.Log("今天开始时间：", Current().StartOfDay().Format())
+	t.Log("今天结束时间：", Current().EndOfDay().Format())
+	t.Log("当前时间戳：", Current().Timestamp())
+	t.Log("今天开始时间戳：", Current().StartOfDay().Timestamp())
+	t.Log("今天结束时间戳：", Current().EndOfDay().Timestamp())
+	t.Log("n天前时间：", Current().BeforeDay(1).Format())
+	t.Log("n天前开始时间戳：", Current().BeforeDay(1).StartOfDay().Format())
+	t.Log("n天前结束时间戳：", Current().BeforeDay(1).EndOfDay().Format())
+	t.Log("n天后时间：", Current().AfterDay(1).Format())
+	t.Log("n天后开始时间戳：", Current().AfterDay(1).StartOfDay().Format())
+	t.Log("n天后结束时间戳：", Current().AfterDay(1).EndOfDay().Format())
 }
 
 func TestDiff(t *testing.T) {
-	t.Log(Current().DiffInHourWithAbs(SetCurrentParse("2021-11-26 14:50:00").Time))
-	t.Log(Current().DiffInHour(SetCurrentParse("2021-11-26 14:50:00").Time))
-	t.Log(Current().DiffInMinutesWithAbs(SetCurrentParse("2021-11-26 14:50:00").Time))
-	t.Log(Current().DiffInMinutes(SetCurrentParse("2021-11-26 14:50:00").Time))
-	t.Log(SetCurrentParse("2022-03-01T10:03:39+08:00").Format())
-	t.Log(SetCurrentParse("2022-03-04T11:12:47+08:00").Format())
+	t.Log("相差多少分秒：", Current().DiffInSecond(SetCurrentParse("2021-11-26 14:50:00").Time))
+	t.Log("相差多少分秒(绝对值)：", Current().DiffInSecondWithAbs(SetCurrentParse("2021-11-26 14:50:00").Time))
+	t.Log("相差多少分钟：", Current().DiffInMinutes(SetCurrentParse("2021-11-26 14:50:00").Time))
+	t.Log("相差多少分钟(绝对值)：", Current().DiffInMinutesWithAbs(SetCurrentParse("2021-11-26 14:50:00").Time))
+	t.Log("相差多少小时：", Current().DiffInHour(SetCurrentParse("2021-11-26 14:50:00").Time))
+	t.Log("相差多少小时(绝对值)：", Current().DiffInHourWithAbs(SetCurrentParse("2021-11-26 14:50:00").Time))
 }
 
 func TestUnix(t *testing.T) {
@@ -121,4 +124,13 @@ func TestMT(t *testing.T) {
 	t.Log(Current().BeforeHour(24 * day).Format())
 	t.Log(Current().BeforeHour(24 * (day - 1)).Format())
 
+}
+
+func TestCompare(t *testing.T) {
+	t.Log("是否大于：", Current().Gt(SetCurrentParse("2021-11-26 14:50:00").Time))
+	t.Log("是否小于：", Current().Lt(SetCurrentParse("2021-11-26 14:50:00").Time))
+	t.Log("是否等于：", Current().Eq(SetCurrentParse("2021-11-26 14:50:00").Time))
+	t.Log("是否不等于：", Current().Ne(SetCurrentParse("2021-11-26 14:50:00").Time))
+	t.Log("是否大于等于：", Current().Gte(SetCurrentParse("2021-11-26 14:50:00").Time))
+	t.Log("是否小于等于：", Current().Lte(SetCurrentParse("2021-11-26 14:50:00").Time))
 }

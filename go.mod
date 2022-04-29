@@ -1,3 +1,3 @@
-module gitee.com/dtapps/gotime
+module github.com/dtapps/gotime
 
-go 1.17
+go 1.18
