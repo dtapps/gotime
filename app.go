@@ -5,6 +5,8 @@ import (
 	"time"
 )
 
+const Version = "1.0.1"
+
 // 时间格式化常量
 const (
 	RFC3339Format       = time.RFC3339

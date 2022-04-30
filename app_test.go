@@ -53,6 +53,8 @@ func TestTime(t *testing.T) {
 
 	t.Log("相差多少小时(绝对值)：", SetCurrentParse("2022-03-01T10:03:39+08:00").Format())
 	t.Log("相差多少小时(绝对值)：", SetCurrentParse("2022-03-04T11:12:47+08:00").Format())
+
+	t.Log("BSON：", Current().Bson())
 }
 
 func TestDayStartOfEnd(t *testing.T) {
