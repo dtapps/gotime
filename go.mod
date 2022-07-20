@@ -1,3 +1,3 @@
-module go.dtapp.net/gotime
+module github.com/dtapps/gotime
 
 go 1.18
