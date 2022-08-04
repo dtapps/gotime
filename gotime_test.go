@@ -91,12 +91,17 @@ func Test2(t *testing.T) {
 }
 
 func TestGt(t *testing.T) {
-	t.Log(SetCurrentParse("2022-04-06 15:05:24").Time)
+	t.Log(SetCurrentParse("2022-07-29 15:05:24").Time)
 	t.Log(Current().Lte(SetCurrentParse("2022-07-18 17:05:24").Time))
 }
 
+func TestCompare(t *testing.T) {
+	t.Log("是否大于", Current().Gt(SetCurrentParse("2022-07-29 14:35:24").Time))
+	t.Log("是否小于", Current().Lt(SetCurrentParse("2022-07-29 14:35:24").Time))
+}
+
 func TestTaoBao(t *testing.T) {
-	i := 1
+	var i int64 = 1
 	for {
 		if i > 3 {
 			break
@@ -112,7 +117,7 @@ func TestTaoBao(t *testing.T) {
 
 func TestMT(t *testing.T) {
 
-	day := 1
+	var day int64 = 1
 	t.Log(day)
 	t.Log(Current().BeforeHour(24 * day).Format())
 	t.Log(Current().BeforeHour(24 * (day - 1)).Format())

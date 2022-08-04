@@ -15,3 +15,19 @@
 ```go
 go get -v -u go.dtapp.net/gotime
 ```
+
+#### 使用
+
+```go
+package main
+
+import (
+	"go.dtapp.net/gotime"
+	"testing"
+)
+
+// TestVerification 验证字符串是否为时间
+func TestVerification(t *testing.T) {
+	t.Log(gotime.Verification("2022-02-05 00:00:00", gotime.DateTimeFormat))
+}
+```
