@@ -23,9 +23,8 @@ const (
 
 // Pro 结构体
 type Pro struct {
-	Time  time.Time
-	loc   *time.Location
-	Error error
+	Time time.Time
+	loc  *time.Location
 }
 
 // NewPro 初始化结构体
