@@ -96,6 +96,11 @@ func (p Pro) ToDateFormat() string {
 	return p.Time.Format(DateFormat)
 }
 
+// ToDateFormatTime 今天此刻日期
+func (p Pro) ToDateFormatTime() time.Time {
+	return SetCurrentParse(p.Time.Format(DateFormat)).Time
+}
+
 // ToTimeFormat 今天此刻时间
 func (p Pro) ToTimeFormat() string {
 	return p.Time.Format(TimeFormat)

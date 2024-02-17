@@ -1,5 +1,5 @@
 <h1>
-<a href="https://www.dtapp.net/">Golang Time</a>
+<a href="https://www.dtapp.net/">Golang</a>
 </h1>
 
 📦 Golang 时间
@@ -12,8 +12,8 @@
 
 #### 安装
 
-```go
-go get -v -u go.dtapp.net/gotime
+```shell
+go get -v -u go.dtapp.net/gotime@v1.0.7
 ```
 
 #### 使用
