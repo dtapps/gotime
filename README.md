@@ -13,7 +13,7 @@
 #### 安装
 
 ```shell
-go get -v -u go.dtapp.net/gotime@v1.0.8
+go get -v -u go.dtapp.net/gotime@v1.0.9
 ```
 
 #### 使用

@@ -91,6 +91,15 @@ func (p Pro) Format() string {
 	return p.Time.Format(DateTimeFormat)
 }
 
+// FormatFilter 今天此刻格式化 带 过滤无效时间
+func (p Pro) FormatFilter() string {
+	if p.Time.Format(DateTimeFormat) == "0001-01-01 00:00:00" || p.Time.Format(DateTimeFormat) == "0001-01-01 08:05:43" {
+		return ""
+	} else {
+		return p.Time.Format(DateTimeFormat)
+	}
+}
+
 // ToDateFormat 今天此刻日期
 func (p Pro) ToDateFormat() string {
 	return p.Time.Format(DateFormat)
