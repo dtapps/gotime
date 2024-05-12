@@ -13,12 +13,12 @@
 #### 安装
 
 ```shell
-go get -v -u go.dtapp.net/gotime@v1.0.9
+go get -v -u go.dtapp.net/gotime@v1.0.10
 ```
 
 #### 使用
 
-```go
+```text
 package main
 
 import (
